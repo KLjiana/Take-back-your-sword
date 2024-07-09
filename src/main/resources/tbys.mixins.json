@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.kljiana.tbys.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "tbys.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "MinecraftClient"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
