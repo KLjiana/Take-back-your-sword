@@ -5,9 +5,10 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "tbys.refmap.json",
   "mixins": [
+    "BowCancel"
   ],
   "client": [
-    "MinecraftClient"
+    "AttackCancel"
   ],
   "injectors": {
     "defaultRequire": 1
