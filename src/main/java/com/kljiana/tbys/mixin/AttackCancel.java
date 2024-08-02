@@ -3,6 +3,8 @@ package com.kljiana.tbys.mixin;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.spongepowered.asm.mixin.Mixin;
@@ -24,6 +26,7 @@ public class AttackCancel {
         AbstractClientPlayer player = mc.player;
         if (player != null && player.getAttackStrengthScale(0.0F) < 1.0F) {
             cir.cancel();
+            player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, 20));
         }
     }
 }
