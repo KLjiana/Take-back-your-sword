@@ -29,7 +29,10 @@ public abstract class BowCancel {
         if (f < 1.0D && isCancelShot.get()) {
             if (pEntityLiving instanceof ServerPlayer player) {
                 MobEffect mobEffect  = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(shotEffect.get()));
-                if (mobEffect != null) player.addEffect(new MobEffectInstance(mobEffect, shotDuration.get(), shotAmplifier.get(), shotAmbient.get(), shotVisible.get(), shotShowIcon.get()));
+                if (mobEffect != null) {
+                    MobEffectInstance instance = new MobEffectInstance(mobEffect, shotDuration.get(), shotAmplifier.get(), shotAmbient.get(), shotVisible.get(), shotShowIcon.get());
+                    player.addEffect(instance);
+                }
             }
             ci.cancel();
         }

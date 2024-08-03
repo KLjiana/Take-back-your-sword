@@ -26,8 +26,6 @@ public class AttackCancel {
     @Inject(method = "startAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/MultiPlayerGameMode;attack(Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/entity/Entity;)V"), cancellable = true)
     private void cancelAttackAnimation(CallbackInfoReturnable<Boolean> cir) {
         if (player != null && player.getAttackStrengthScale(0.0F) < 1.0F && isCancelAttack.get()) {
-            MobEffect mobEffect = ForgeRegistries.MOB_EFFECTS.getValue(new ResourceLocation(attackEffect.get()));
-            if (mobEffect != null && player.getCommandSenderWorld().getServer().getLevel(player.getCommandSenderWorld().dimension()).getEntity(player.getUUID()) instanceof LivingEntity entity) entity.addEffect(new MobEffectInstance(mobEffect, attackDuration.get(), attackAmplifier.get(), attackAmbient.get(), attackVisible.get(), attackShowIcon.get()), player);
             cir.setReturnValue(false);
         }
     }

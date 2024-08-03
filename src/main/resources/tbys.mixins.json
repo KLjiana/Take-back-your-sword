@@ -5,8 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "refmap": "tbys.refmap.json",
   "mixins": [
-    "BowCancel",
-    "ServerPlayerAccessor"
+    "BowCancel"
   ],
   "client": [
     "AttackCancel"
